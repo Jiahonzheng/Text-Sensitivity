@@ -1,14 +1,14 @@
 // 阿里云文本反垃圾API详细文档：
 // https://help.aliyun.com/document_detail/53423.html?spm=a2c4g.11174283.3.8.Zdu4ZU
 
-const config = require("./config.json");
+const {ALI_ACCESS_KEY_ID, ALI_ACCESS_SECRET} = require("./config.json");
 const crypto = require("crypto");
 const https = require("https");
 const uuidV1 = require("uuid/v1");
 
 const bizCfg = {
-	"accessKeyId": config.ALI_ACCESS_KEY_ID,
-	"accessKeySecret": config.ALI_ACCESS_SECRET,
+	"accessKeyId": ALI_ACCESS_KEY_ID,
+	"accessKeySecret": ALI_ACCESS_SECRET,
 	"path": "/green/text/scan",
 	"requestBody": null,
 	"hostname": "green.cn-shanghai.aliyuncs.com",

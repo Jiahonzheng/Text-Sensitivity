@@ -1,12 +1,12 @@
 // 腾讯云文智敏感词检测API详细文档：
 // https://cloud.tencent.com/document/api/271/2615
 
-let Capi = require("qcloudapi-sdk");
-let config = require('./config.json');
+const Capi = require("qcloudapi-sdk");
+const {QCLOUD_ACCESS_KEY_ID, QCLOUD_ACCESS_SECRET} = require('./config.json');
 
 let capi = new Capi({
-	SecretId: config.QCLOUD_ACCESS_KEY_ID,
-	SecretKey: config.QCLOUD_ACCESS_SECRET,
+	SecretId: QCLOUD_ACCESS_KEY_ID,
+	SecretKey: QCLOUD_ACCESS_SECRET,
 	serviceType: "wenzhi"
 });
 
