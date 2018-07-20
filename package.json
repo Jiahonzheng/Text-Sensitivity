@@ -1,0 +1,30 @@
+{
+  "name": "ct-sensitivity",
+  "version": "0.0.0",
+  "description": "敏感词汇检测系统",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiahonzheng/Text-Sensitivity.git"
+  },
+  "keywords": [
+    "text-sensitivity"
+  ],
+  "author": {
+    "name": "Jiahonzheng",
+    "email": "jiahonzheng@gmail.com",
+    "url": "https://jiahonzheng.github.io"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "qcloudapi-sdk": "^0.1.6",
+    "uuid": "^3.3.2"
+  }
+}

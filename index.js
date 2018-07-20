@@ -1,16 +1,23 @@
-const aliTextSensitivity = require('./aliTextSensitivity');
-const qcloudTextSensitivity = require('./qcloudTextSensitivity');
+const Aliyun = require("./lib/aliyun");
+const Qcloud = require("./lib/qcloud");
 
-async function checkTextSensitivity(order) {
-    let aliResult = await aliTextSensitivity(order);
-    let qcloudResult = await qcloudTextSensitivity(order);
+function textSensitivity(options) {
+  const {
+    ALI_ACCESS_KEY_ID,
+    ALI_ACCESS_SECRET,
+    QCLOUD_ACCESS_KEY_ID,
+    QCLOUD_ACCESS_SECRET
+  } = options;
+  const aliyun = Aliyun(ALI_ACCESS_KEY_ID, ALI_ACCESS_SECRET);
+  const qcloud = Qcloud(QCLOUD_ACCESS_KEY_ID, QCLOUD_ACCESS_SECRET);
+
+  return async function(content) {
+    const aliResult = await aliyun(content);
+    const qcloudResult = await qcloud(content);
 
     // 当且仅当阿里云和腾讯云的审核通过，该词汇才会被审核通过
-    if (aliResult === 1 && qcloudResult === 1) {
-        return 1;
-    }
-
-    return 0;
+    return aliResult === 1 && qcloudResult === 1;
+  };
 }
 
-module.exports = checkTextSensitivity;
+module.exports = textSensitivity;
